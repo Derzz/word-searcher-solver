@@ -17,7 +17,6 @@ class App extends Component {
         super(props);
     };
 
-
     render() {
         return (
             <div className="App">
@@ -29,7 +28,7 @@ class App extends Component {
                         value={this.state.phrase}
                         onChange={e => this.setPhrase(e.target.value)}
                         rows={5}/>
-                    <button id={'start'} type={'button'}>Click me!</button>
+                    <button id={"start"} type={"button"} onClick={() => solver(this.state.phrase)}>Click me!</button>
                 </header>
             </div>
         );
