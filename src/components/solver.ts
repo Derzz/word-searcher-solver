@@ -1,8 +1,7 @@
 const solver = function (gridString: string, wordString: string) {
     let grid: Array<Array<String>>;
     let words: Array<String>;
-    console.log("clicked!");
-    console.log(gridString);
+    console.log("michael!");
 
     //TODO Steps
     // 1. Split gridString into grid, separate components as needed
