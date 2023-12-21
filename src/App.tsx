@@ -6,12 +6,18 @@ import './App.css';
 
 class App extends Component {
     state = {
-        phrase: ""
+        grid: "",
+        words: ""
     }
 
-    setPhrase = (value: string) => {
-        this.setState({phrase: value});
+    setGrid = (value: string) => {
+        this.setState({grid: value});
     }
+
+    setWords = (value: string) => {
+        this.setState({words: value});
+    }
+
 
     constructor(props: any) {
         super(props);
@@ -23,12 +29,22 @@ class App extends Component {
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo"/>
                     <textarea
-                        name="Text1"
+                        name="Word Searcher Puzzle"
                         cols={40}
-                        value={this.state.phrase}
-                        onChange={e => this.setPhrase(e.target.value)}
+                        value={this.state.grid}
+                        onChange={e => this.setGrid(e.target.value)}
                         rows={5}/>
-                    <button id={"start"} type={"button"} onClick={() => solver(this.state.phrase)}>Click me!</button>
+
+                    <textarea
+                        name="Words"
+                        cols={40}
+                        value={this.state.words}
+                        onChange={e => this.setWords(e.target.value)}
+                        rows={5}/>
+
+                    <button id={"start"} type={"button"} onClick={() => solver(this.state.grid, this.state.words)}>Click
+                        me!
+                    </button>
                 </header>
             </div>
         );
