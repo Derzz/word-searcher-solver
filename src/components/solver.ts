@@ -1,7 +1,7 @@
 const solver = function (gridString: string, wordString: string) {
     let grid: Array<Array<String>>;
     let words: Array<String>;
-    console.log("thomas");
+    console.log("test");
     //console.log(gridString);
 
     //TODO Steps
