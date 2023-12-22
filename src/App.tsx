@@ -1,6 +1,6 @@
 import React, {Component, useState} from 'react';
 import logo from './logo.svg';
-import solver from './components/solver'
+import setUp from './components/solver'
 import './App.css';
 
 
@@ -42,7 +42,7 @@ class App extends Component {
                         onChange={e => this.setWords(e.target.value)}
                         rows={5}/>
 
-                    <button id={"start"} type={"button"} onClick={() => solver(this.state.grid, this.state.words)}>Click
+                    <button id={"start"} type={"button"} onClick={() => setUp(this.state.grid, this.state.words)}>Click
                         me!
                     </button>
                 </header>
