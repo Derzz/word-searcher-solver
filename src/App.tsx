@@ -6,8 +6,8 @@ import './App.css';
 
 class App extends Component {
     state = {
-        grid: "",
-        words: ""
+        grid: "ATJAA\nABOBA\nAAEMA",
+        words: "BOB\nJOE\nTOM"
     }
 
     setGrid = (value: string) => {
