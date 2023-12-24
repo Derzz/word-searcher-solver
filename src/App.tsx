@@ -2,8 +2,6 @@ import React, {Component, useState} from 'react';
 import logo from './logo.svg';
 import setUp from './components/solver'
 import './App.css';
-import {Simulate} from "react-dom/test-utils";
-import error = Simulate.error;
 
 
 class App extends Component {
@@ -69,6 +67,8 @@ class App extends Component {
                             onClick={() => this.checkGrid(this.state.grid, this.state.words)}>Click
                         me!
                     </button>
+
+                    // TODO Add a way to change font color based on color selected
 
                     <h1>
                         {this.state.error}
