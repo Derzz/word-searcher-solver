@@ -94,15 +94,13 @@ const setUp = function (gridString: string, wordString: string): Array<foundWord
 
     GRIDY = gridString.split('\n')[0].length - 1;
     GRIDX = GRID.length - 1;
-    // TODO Perform check and check if grid is a rectangle, if it's irregular, return error
+    // TODO Perform check and check if grid is a rectangle, if it's irregular, return error(Maybe do a try catch and throw an exception)
     let foundWords: Array<foundWord> = new Array<foundWord>();
     words.forEach((str) => {
         foundWords.push(solver(str));
     });
 
-    foundWords.forEach((value) => {
-        console.log(value);
-    });
+    console.log(foundWords);
 
     console.log("finish!");
 
