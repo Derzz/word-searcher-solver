@@ -17,7 +17,7 @@
 interface coordinate {
     x: number;
     y: number;
-};
+}
 
 interface foundWord {
     name: string;
@@ -51,7 +51,8 @@ const directionCheck = (word: string, analyze: coordinate, direction: coordinate
  * @param word The word to be found
  */
 const solver = (word: string): foundWord => {
-    let solved: foundWord = {name: word, color: "blue", found: false, foundCoords: new Array<coordinate>()};
+    // @ts-ignore
+    let solved: foundWord = {name: word, color: "blue", found: false, foundCoords: new Array<coordinate>};
     for (let indexX = 0; indexX < GRID.length; indexX++) {
         for (let indexY = 0; indexY < GRID[indexX].length; indexY++) {
             if (GRID[indexX][indexY] === word[0]) {
@@ -95,6 +96,7 @@ const setUp = function (gridString: string, wordString: string): Array<foundWord
     GRIDY = gridString.split('\n')[0].length - 1;
     GRIDX = GRID.length - 1;
     // TODO Perform check and check if grid is a rectangle, if it's irregular, return error(Maybe do a try catch and throw an exception)
+    // @ts-ignore
     let foundWords: Array<foundWord> = new Array<foundWord>();
     words.forEach((str) => {
         foundWords.push(solver(str));
