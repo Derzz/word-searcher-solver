@@ -36,6 +36,16 @@ class App extends Component {
             }
         }
         this.setState({error: "The grid is a rectangle!"});
+
+        var gridstring = (document.getElementById("grid") as HTMLInputElement).value;
+        //console.log();
+        //setSplitted(gridstring.split("\n"));
+        //console.log(gridstring.split("\n"));
+        console.log(gridstring);
+
+        this.setState({preview: gridstring.split("\n")});
+        //this.setState({ preview: gridstring});
+
         setUp(gridString, wordString);
     }
 
@@ -45,19 +55,6 @@ class App extends Component {
         //this.state = { preview: [''] };
     };
 
-    Handleclick = () => {
-        //const [splitted,setSplitted]= useState();
-        console.log(10);
-        var gridstring = (document.getElementById("grid") as HTMLInputElement).value;
-        //console.log();
-        //setSplitted(gridstring.split("\n")); 
-        //console.log(gridstring.split("\n")); 
-        console.log(gridstring);
-
-        this.setState({preview: gridstring.split("\n")});
-        //this.setState({ preview: gridstring});  
-
-    }
 
     render() {
         //var splitted=[''];
@@ -123,20 +120,6 @@ class App extends Component {
                             </div>
                         </div>
                     </div>
-
-
-                    <button onClick={this.Handleclick}>
-                        hi
-                    </button>
-
-
-                    <button id={"start"} type={"button"}
-                            onClick={() => this.checkGrid(this.state.grid, this.state.words)}>
-                        Click me!
-                    </button>
-
-                    // TODO Add a way to change font color based on color selected
-
                     <h1>
                         {this.state.error}
                     </h1>
