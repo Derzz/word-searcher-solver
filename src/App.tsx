@@ -1,14 +1,14 @@
 import React, {Component, useState} from 'react';
-import logo from './logo.svg';
 import setUp from './components/solver'
 import './App.css';
 
 
 class App extends Component {
     state = {
+        preview: [''],
         grid: "ATJAA\nABOBA\nAAEMA",
         words: "BOB\nJOE\nTOM",
-        error: "",
+        error: ""
     }
 
     setGrid = (value: string) => {
@@ -36,40 +36,90 @@ class App extends Component {
             }
         }
         this.setState({error: "The grid is a rectangle!"});
+
+        var gridstring = (document.getElementById("grid") as HTMLInputElement).value;
+        //console.log();
+        //setSplitted(gridstring.split("\n"));
+        //console.log(gridstring.split("\n"));
+        console.log(gridstring);
+
+        this.setState({preview: gridstring.split("\n")});
+        //this.setState({ preview: gridstring});
+
         setUp(gridString, wordString);
     }
 
 
     constructor(props: any) {
         super(props);
+        //this.state = { preview: [''] };
     };
 
+
     render() {
+        //var splitted=[''];
         return (
             <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <textarea
-                        name="Word Searcher Puzzle"
-                        cols={40}
-                        value={this.state.grid}
-                        onChange={e => this.setGrid(e.target.value)}
-                        rows={5}/>
+                <header className="App-header ">
+                    <h1 className="title">
+                        Word Solver
+                    </h1>
+                    <div className="bigblock">
+                        <div className="hello">
 
-                    <textarea
-                        name="Words"
-                        cols={40}
-                        value={this.state.words}
-                        onChange={e => this.setWords(e.target.value)}
-                        rows={5}/>
+                            <div className=" h-8 pt-1 w-80 rounded-md text-white bg-cyan-600 text-center align-middle">
+                                Create board
+                            </div>
 
-                    <button id={"start"} type={"button"}
-                            onClick={() => this.checkGrid(this.state.grid, this.state.words)}>Click
-                        me!
-                    </button>
+                            <textarea
+                                id="grid"
+                                className=" w-80 h-64 bg-slate-100 border-solid border-2 bg-right resize-none rounded"
+                                name="Word Searcher Puzzle"
+                                cols={40}
+                                value={this.state.grid}
+                                onChange={e => this.setGrid(e.target.value)}
+                                rows={5}/>
 
-                    // TODO Add a way to change font color based on color selected
+                            <div
+                                className=" h-8 pt-1 w-80 rounded-md text-white bg-cyan-600 text-center align-middle mt-4">
+                                Find word
+                            </div>
+                            <textarea
+                                placeholder='enter your word here'
+                                className=" w-80 h-36 bg-slate-100 border-solid border-2 bg-right resize-none rounded"
+                                name="Words"
+                                cols={40}
+                                value={this.state.words}
+                                onChange={e => this.setWords(e.target.value)}
+                                rows={5}/>
 
+                            <button
+                                className="button-example"
+                                id={"start"} type={"button"}
+                                onClick={() => this.checkGrid(this.state.grid, this.state.words)}>
+                                click me
+                            </button>
+                        </div>
+
+                        <div>
+                            <div className="preview-bar">
+                                Preview
+                            </div>
+
+                            <div className="preview-backgorund">
+                                <div className="preview">
+                                    {this.state.preview.map(show => (
+                                        <p className='demo'> {show.split('').map(show2 => (
+
+                                            <p> {show2} </p>
+
+                                        ))} </p>
+
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <h1>
                         {this.state.error}
                     </h1>
