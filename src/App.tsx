@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import setUp from './components/solver'
+import Grid from './components/grid'
 import './App.css';
 
 
@@ -89,24 +90,7 @@ class App extends Component {
                                 click me
                             </button>
                         </div>
-
-                        <div>
-                            <div className="preview-bar">
-                                Preview
-                            </div>
-
-                            <div className="preview-backgorund">
-                                <div className="preview">
-                                    {this.state.preview.map((show, indexRow) => (
-                                        <p className='demo'
-                                           id={indexRow.toString()}> {show.split('').map((show2, indexCol) => (
-                                            <p id={indexCol.toString()}> {show2} </p>
-                                        ))} </p>
-
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
+                        <Grid preview={this.state.preview}/>
                     </div>
                     <h1>
                         {this.state.error}
