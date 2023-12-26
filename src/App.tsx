@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, {Component} from 'react';
 import setUp from './components/solver'
 import './App.css';
 
@@ -38,26 +38,15 @@ class App extends Component {
         this.setState({error: "The grid is a rectangle!"});
 
         var gridstring = (document.getElementById("grid") as HTMLInputElement).value;
-        //console.log();
-        //setSplitted(gridstring.split("\n"));
-        //console.log(gridstring.split("\n"));
         console.log(gridstring);
 
         this.setState({preview: gridstring.split("\n")});
-        //this.setState({ preview: gridstring});
 
         setUp(gridString, wordString);
     }
 
 
-    constructor(props: any) {
-        super(props);
-        //this.state = { preview: [''] };
-    };
-
-
     render() {
-        //var splitted=[''];
         return (
             <div className="App">
                 <header className="App-header ">
@@ -108,11 +97,10 @@ class App extends Component {
 
                             <div className="preview-backgorund">
                                 <div className="preview">
-                                    {this.state.preview.map(show => (
-                                        <p className='demo'> {show.split('').map(show2 => (
-
-                                            <p> {show2} </p>
-
+                                    {this.state.preview.map((show, indexRow) => (
+                                        <p className='demo'
+                                           id={indexRow.toString()}> {show.split('').map((show2, indexCol) => (
+                                            <p id={indexCol.toString()}> {show2} </p>
                                         ))} </p>
 
                                     ))}
