@@ -19,7 +19,7 @@ interface coordinate {
     y: number;
 }
 
-interface foundWord {
+export interface foundWord {
     name: string;
     color: string;
     found: boolean;
@@ -53,7 +53,8 @@ const directionCheck = (word: string, analyze: coordinate, direction: coordinate
 const solver = (word: string): foundWord => {
     let solved: foundWord = {
         name: word,
-        color: Math.floor(Math.random() * 16777215).toString(16),
+        // TODO If another word has the same color, change the color
+        color: ("000000" + Math.floor(Math.random() * 16777215).toString(16)).slice(-6),
         found: false,
         foundCoords: new Array<coordinate>()
     };

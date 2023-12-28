@@ -1,56 +1,73 @@
 import React, {useEffect, useRef} from 'react';
 import '../index.css'
+import {foundWord} from "./solver";
 
 interface GridProps {
     preview: string[];
+    found: foundWord[];
 }
 
-function makeRows(container: HTMLElement, rows: string, cols: string) {
+function hexToRgb(hex: string) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ?
+        [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)]
+        : null;
+}
+
+function makeGrid(container: HTMLElement, arr: string[], foundWordArr: foundWord[]) {
     // Clear the container
     container.innerHTML = '';
+    let rows: string = arr.length.toString();
+    let cols: string = arr[0].length.toString();
+    let rowCount: number = 0;
+    let colCount: number = 0;
 
     container.style.setProperty('--grid-rows', rows);
     container.style.setProperty('--grid-cols', cols);
     for (let c = 0; c < (parseInt(rows) * parseInt(cols)); c++) {
-        console.log(c)
+        rowCount = Math.floor(c / parseInt(cols));
+        colCount = c % parseInt(cols);
         let cell = document.createElement("div");
-        cell.innerText = (c + 1).toString();
+        cell.innerText = arr[rowCount][colCount];
         container.appendChild(cell).className = "grid-item";
+        container.appendChild(cell).id = "cell" + c;
+    }
+
+    // Add ability to color cells based on foundWord
+    // Index will be row * xPos + yPos
+
+    for (let c = 0; c < foundWordArr.length; ++c) {
+        if (foundWordArr[c].found) {
+            for (let i = 0; i < foundWordArr[c].foundCoords.length; ++i) {
+                let temp = foundWordArr[c].foundCoords[i];
+                let index: number = temp.x * parseInt(cols) + temp.y;
+                var div: HTMLElement | null = document.getElementById("cell" + index);
+                // @ts-ignore
+                div.style.background = "#" + foundWordArr[c].color;
+                let rgb = hexToRgb(foundWordArr[c].color);
+                if (rgb) {
+                    const brightness = Math.round(((rgb[0] * 299) +
+                        (rgb[1] * 587) +
+                        (rgb[2] * 114)) / 1000);
+                    const textColour = (brightness > 125) ? 'black' : 'white';
+                    // @ts-ignore
+                    div.style.color = textColour;
+                }
+            }
+        }
     }
 }
 
-export default function Grid({preview}: GridProps) {
+export default function Grid({preview, found}: GridProps) {
     const containerRef = useRef(null);
 
     useEffect(() => {
         if (containerRef.current) {
-            makeRows(containerRef.current, "5", "5");
+            makeGrid(containerRef.current, preview, found);
         }
-    }, []);
+    }, [preview, found]);
 
     return (
         <div ref={containerRef} id="container"/>
     );
-
-    /*
-    return (
-        <div>
-            <div className="preview-bar">
-                Preview
-            </div>
-
-            <div className="preview-backgorund">
-                <div className="preview">
-                    {preview.map((show, indexRow) => (
-                        <div className='demo'
-                             id={indexRow.toString()}> {show.split('').map((show2, indexCol) => (
-                            <div id={indexCol.toString()}> {show2} </div>
-                        ))} </div>
-
-                    ))}
-                </div>
-            </div>
-        </div>
-    )
-     */
 }

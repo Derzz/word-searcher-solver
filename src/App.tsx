@@ -6,6 +6,7 @@ import './App.css';
 
 class App extends Component {
     state = {
+        found: [],
         preview: [''],
         grid: "ATJAA\nABOBA\nAAEMA",
         words: "BOB\nJOE\nTOM",
@@ -43,7 +44,7 @@ class App extends Component {
 
         this.setState({preview: gridstring.split("\n")});
 
-        setUp(gridString, wordString);
+        this.setState({found: setUp(gridString, wordString)});
     }
 
 
@@ -90,11 +91,11 @@ class App extends Component {
                                 click me
                             </button>
                         </div>
-                        <Grid preview={this.state.preview}/>
                     </div>
                     <h1>
                         {this.state.error}
                     </h1>
+                    <Grid preview={this.state.preview} found={this.state.found}/>
                 </header>
             </div>
         );
