@@ -10,7 +10,8 @@ class App extends Component {
         preview: [''],
         grid: "ATJAA\nABOBA\nAAEMA",
         words: "BOB\nJOE\nTOM",
-        error: ""
+        error: "",
+        clicked: false
     }
 
     setGrid = (value: string) => {
@@ -37,7 +38,7 @@ class App extends Component {
                 return;
             }
         }
-        this.setState({error: "The grid is a rectangle!"});
+        this.setState({error: ""});
 
         var gridstring = (document.getElementById("grid") as HTMLInputElement).value;
         console.log(gridstring);
@@ -45,6 +46,8 @@ class App extends Component {
         this.setState({preview: gridstring.split("\n")});
 
         this.setState({found: setUp(gridString, wordString)});
+
+        this.setState({clicked: true});
     }
 
 
@@ -95,7 +98,9 @@ class App extends Component {
                     <h1>
                         {this.state.error}
                     </h1>
-                    <Grid preview={this.state.preview} found={this.state.found}/>
+                    {this.state.clicked ?
+                        <Grid preview={this.state.preview} found={this.state.found}/> : <div/>
+                    }
                 </header>
             </div>
         );
