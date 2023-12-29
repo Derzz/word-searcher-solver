@@ -1,14 +1,17 @@
-import React, {Component, useState} from 'react';
+import React, {Component} from 'react';
 import setUp from './components/solver'
+import Grid from './components/grid'
 import './App.css';
 
 
 class App extends Component {
     state = {
+        found: [],
         preview: [''],
         grid: "ATJAA\nABOBA\nAAEMA",
         words: "BOB\nJOE\nTOM",
-        error: ""
+        error: "",
+        clicked: false
     }
 
     setGrid = (value: string) => {
@@ -35,29 +38,20 @@ class App extends Component {
                 return;
             }
         }
-        this.setState({error: "The grid is a rectangle!"});
+        this.setState({error: ""});
 
         var gridstring = (document.getElementById("grid") as HTMLInputElement).value;
-        //console.log();
-        //setSplitted(gridstring.split("\n"));
-        //console.log(gridstring.split("\n"));
         console.log(gridstring);
 
         this.setState({preview: gridstring.split("\n")});
-        //this.setState({ preview: gridstring});
 
-        setUp(gridString, wordString);
+        this.setState({found: setUp(gridString, wordString)});
+
+        this.setState({clicked: true});
     }
 
 
-    constructor(props: any) {
-        super(props);
-        //this.state = { preview: [''] };
-    };
-
-
     render() {
-        //var splitted=[''];
         return (
             <div className="App">
                 <header className="App-header ">
@@ -100,29 +94,13 @@ class App extends Component {
                                 click me
                             </button>
                         </div>
-
-                        <div>
-                            <div className="preview-bar">
-                                Preview
-                            </div>
-
-                            <div className="preview-backgorund">
-                                <div className="preview">
-                                    {this.state.preview.map(show => (
-                                        <p className='demo'> {show.split('').map(show2 => (
-
-                                            <p> {show2} </p>
-
-                                        ))} </p>
-
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <h1>
                         {this.state.error}
                     </h1>
+                    {this.state.clicked ?
+                        <Grid preview={this.state.preview} found={this.state.found}/> : <div/>
+                    }
                 </header>
             </div>
         );
