@@ -19,7 +19,7 @@ interface coordinate {
     y: number;
 }
 
-interface foundWord {
+export interface foundWord {
     name: string;
     color: string;
     found: boolean;
@@ -53,7 +53,8 @@ const directionCheck = (word: string, analyze: coordinate, direction: coordinate
 const solver = (word: string): foundWord => {
     let solved: foundWord = {
         name: word,
-        color: Math.floor(Math.random() * 16777215).toString(16),
+        // TODO If another word has the same color, change the color
+        color: ("000000" + Math.floor(Math.random() * 16777215).toString(16)).slice(-6),
         found: false,
         foundCoords: new Array<coordinate>()
     };
@@ -63,7 +64,7 @@ const solver = (word: string): foundWord => {
                 console.log("Found first letter of ", word, "at", indexX, " ", indexY);
                 for (let i = -1; i <= 1; ++i) {
                     for (let j = -1; j <= 1; ++j) {
-                        if (i !== 0 && j !== 0 || indexX + i >= 0 || indexX + i <= GRIDX || indexY + j >= 0 || indexX + j <= GRIDY) {
+                        if ((i !== 0 && j !== 0) || (indexX + i >= 0) || (indexX + i <= GRIDX) || (indexY + j >= 0) || (indexX + j <= GRIDY)) {
                             if (directionCheck(word, {x: indexX + i, y: indexY + j}, {x: i, y: j}, 1)) {
                                 console.log("Found ", word, " at ", indexX, " ", indexY, " with direction ", i, " ", j);
                                 for (let num = 0; num < word.length; ++num) {
