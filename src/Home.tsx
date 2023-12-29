@@ -65,6 +65,7 @@ class Home extends Component{
     render(){
         return(
             <div className="App">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
                 <header className="App-header "> 
                     <div className="title">
                         <div>
@@ -100,7 +101,7 @@ class Home extends Component{
 
                         <div className="Nav-bar-block">
                             <div>
-                                <li className="Nav-bar"> <a href="./home">Home </a> </li>
+                                <li className="Nav-bar"> <a href="./home">Home</a> </li>
                             </div>  
                             
                             <div>
@@ -117,7 +118,9 @@ class Home extends Component{
                         <div className="hello">
                             
                             <div className="text-title1">  
-                                Create board
+                                    Create board &nbsp;           
+                                <li className="fa fa-trash"
+                                    onClick={() => this.setState({ grid: ""})}></li>
                             </div>
     
                             <textarea 

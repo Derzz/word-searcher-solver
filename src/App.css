@@ -11,7 +11,7 @@
     flex-direction: row;
     
     padding-top:15px;
-    background: rgb(194, 192, 192);
+    background: rgb(128, 126, 126);
 }
 
 
@@ -26,7 +26,7 @@
   align-items: center;
   font-size: 46px;
   border-radius: 20px;
-  margin-left:10px;
+  margin-left:12px;
   animation: title-block 1.5s ease forwards;
 }
 
@@ -96,7 +96,7 @@
 .button-example {
   font-size: 16px;
   letter-spacing: 2px;
-  color:  #8e8c8c;
+  color: rgb(128, 126, 126);
   cursor: pointer;
   border: 2px solid;
   padding: 0.25em 0.5em;
@@ -121,6 +121,7 @@
 .text-title1{
   @apply  h-8 pt-1 w-80 rounded-md text-white bg-cyan-600 text-center align-middle;
   letter-spacing: 2px;
+  padding-left: 25px;
 }
 
 .text-title2{
@@ -147,9 +148,28 @@ li {
   flex-direction:row;
   align-items: center;
   padding-bottom: 15px;
+  margin-left: 100px;
 }
 
 .Nav-bar{
-  width:200px;
-  text-align: right;
+  width:170px;
+  color: #000000;
+  font-family: monospace; 
+  font-size: 17px;
 }
+.Nav-bar:hover{
+  color: rgb(213, 210, 210);
+  font-size:19px;
+}
+
+.image{
+  width:600px;
+  height:600px;
+  
+}
+
+.aboutus-body{
+  display:flex;
+  flex-direction: row;
+}
+
