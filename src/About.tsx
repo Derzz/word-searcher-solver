@@ -3,7 +3,7 @@ import solver from './components/solver';
 import setUp from './components/solver';
 import './App.css';
 import {Routes,Route,Link} from "react-router-dom";
-import waterloo from './university-of-waterloo9207.logowik.com.webp';
+//import waterloo from './university-of-waterloo9207.logowik.com.webp';
 
 function About(){
     return(  
@@ -58,7 +58,7 @@ function About(){
                 </div>
             <div className="aboutus-body">
                 <div className="image">
-                    <img src={waterloo}>
+                    <img src={require("./university-of-waterloo9207.logowik.com.webp")}>
                                         
                     </img>
                 </div>

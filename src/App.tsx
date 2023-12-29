@@ -1,5 +1,6 @@
 import React, {Component, useState} from 'react';
 import solver from './components/solver'
+import setUp from './components/solver';
 import Grid from './components/grid'
 import './App.css';
 import {Routes,Route,Link} from "react-router-dom";

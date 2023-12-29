@@ -3,34 +3,36 @@ import solver from './components/solver';
 import setUp from './components/solver';
 import './App.css';
 import {Routes,Route,Link} from "react-router-dom";
-
+import Grid from './components/grid'
 
 
 class Home extends Component{
     state = {
+        found: [],
         preview: [''],
         grid: "ATJAA\nABOBA\nAAEMA",
         words: "BOB\nJOE\nTOM",
-        error: ""
+        error: "",
+        clicked: false
     }
-    
+
     setGrid = (value: string) => {
         this.setState({grid: value});
     }
-    
+
     setWords = (value: string) => {
         this.setState({words: value});
     }
-    
+
     checkGrid = (gridString: string, wordString: string) => {
         let temp: Array<string> = gridString.split('\n').map(str => str.trim());
         let compareLength: number = temp[0].length;
-    
+
         if (compareLength === 0) {
             this.setState({error: "You have provided an empty grid. Please try again."});
             return;
         }
-    
+
         for (let i = 1; i < temp.length; ++i) {
             if (temp[i].length !== compareLength) {
                 this.setState({error: "The grid is not a rectangle. Please try again."});
@@ -41,13 +43,13 @@ class Home extends Component{
         this.setState({error: "The grid is a rectangle!"});
         setUp(gridString, wordString);
     }
-    
-    
+
+
     constructor(props: any) {
         super(props);
         //this.state = { preview: [''] };
     };
-    
+
     Handleclick = () => {
         //const [splitted,setSplitted]= useState();
         console.log(10);
