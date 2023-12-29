@@ -34,6 +34,7 @@ class App extends Component {
         for (let i = 1; i < temp.length; ++i) {
             if (temp[i].length !== compareLength) {
                 this.setState({error: "The grid is not a rectangle. Please try again."});
+                this.setState({clicked: false});
                 console.log("failed!")
                 return;
             }
