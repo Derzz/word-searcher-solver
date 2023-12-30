@@ -53,15 +53,13 @@ export default class Home extends Component {
         return (
             <div className="App">
                 <Navbar/>
-                <div className="bigblock">
-                    <div className="hello">
-
+                <div className="container-fluid">
+                    <div className="input">
                         <div className="text-title1">
                             Create board &nbsp;
                             <li className="fa fa-trash"
                                 onClick={() => this.setState({grid: ""})}></li>
                         </div>
-
                         <textarea
                             id="grid"
                             className=" w-80 h-64 bg-slate-100 border-solid border-2 bg-right resize-none rounded"
@@ -72,7 +70,7 @@ export default class Home extends Component {
                             rows={5}/>
 
                         <div className="text-title2">
-                            Find word
+                            List of Words to Find
                         </div>
                         <textarea
                             placeholder='enter your word here'
@@ -91,15 +89,16 @@ export default class Home extends Component {
                         </button>
                     </div>
 
-                    <div>
-                        <div className="preview-bar">
-                            Preview
+                    <div className="preview">
+                        <div id="previewItems">
+                            <div className="preview-bar">
+                                Preview
+                            </div>
+                            {this.state.clicked ? (this.state.error.length === 0 ?
+                                <Grid preview={this.state.preview} found={this.state.found}/> :
+                                this.state.error) : <Grid preview={this.state.preview} found={this.state.found}/>
+                            }
                         </div>
-
-                        {this.state.clicked ? (this.state.error.length === 0 ?
-                            <Grid preview={this.state.preview} found={this.state.found}/> :
-                            this.state.error) : <Grid preview={this.state.preview} found={this.state.found}/>
-                        }
                     </div>
                 </div>
             </div>

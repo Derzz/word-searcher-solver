@@ -2,54 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-
-.title-block {
-    position: relative;
-    height: 70px;
-    width: 70px;
-    background: #18191f;
-    color: #8e8c8c;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 46px;
-    border-radius: 20px;
-    margin-left: 12px;
-    animation: title-block 1.5s ease forwards;
+html, body {
+    height: 100%;
 }
 
-
-@keyframes title-block {
-    30% {
-        transform: scale(1.1);
-    }
-    40%, 60% {
-        transform: rotate(-20deg) scale(1.1);
-    }
-    50% {
-        transform: rotate(20deg) scale(1.1);
-    }
-    70% {
-        transform: rotate(0deg) scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
+#root, .App {
+    height: 100%
 }
 
-.bigblock {
+.container-fluid {
     display: flex;
+    bottom: 0;
+    flex-basis: 0;
     flex-direction: row;
-
+    height: 100%;
+    position: relative;
 }
 
-
-.hello {
+.input {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 600px;
-    width: 800px;
+    height: 100%;
+    width: 50%;
     align-items: center;
 }
 
@@ -62,12 +37,17 @@
 .preview {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    height: 400px;
-    width: 300px;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 50%;
     color: black;
     font-size: 15px;
     font-weight: bold;
+}
+
+#previewItems {
+    height: 75%
 }
 
 .preview-bar {
@@ -113,15 +93,6 @@
 .text-title2 {
     @apply h-8 pt-1 w-80 rounded-md text-white bg-cyan-600 text-center align-middle mt-4;
     letter-spacing: 2px;
-}
-
-.preview-small {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
 }
 
 li {
