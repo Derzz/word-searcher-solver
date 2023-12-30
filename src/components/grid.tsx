@@ -98,16 +98,14 @@ export default function Grid({preview, found}: GridProps) {
             <table style={{height:'200px',width:'150px'}}>
                 
                 <thead> 
-                
                 {isEmpty(found) ?
                     "" :  (<tr>
                         <th className="grid-border">Word</th>
                         <th className="grid-border">Color</th>
-                    </tr> ) 
+                    </tr>) 
                 }
-                
-                    
                 </thead>
+                
                 <tbody>
                 {found.map((word, index) => (
                     <tr key={index} className="grid-border">
