@@ -1,9 +1,9 @@
-import React, {Component, useState} from 'react';
+import React from 'react';
 import './style/App.css';
 import {Routes, Route, Link} from "react-router-dom";
 import About from './pages/About';
 import Home from './pages/Home';
-import Howitworks from './pages/Howitworks';
+import HowItWorks from './pages/HowItWorks';
 
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
             <Route index element={<Home/>}/>
             <Route path="/home" element={<Home/>}/>
             <Route path="/about" element={<About/>}/>
-            <Route path="/howitworks" element={<Howitworks/>}/>
+            <Route path="/howitworks" element={<HowItWorks/>}/>
         </Routes>
     );
 }

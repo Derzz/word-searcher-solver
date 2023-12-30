@@ -2,10 +2,10 @@ import React from 'react';
 import '../style/App.css';
 import Navbar from "../components/Navbar";
 
-function Howitworks() {
+function HowItWorks() {
     return (
         <Navbar/>
     );
 }
 
-export default Howitworks;
+export default HowItWorks;

@@ -12,7 +12,7 @@ export default class Home extends Component {
         grid: "ATJAA\nABOBA\nAAEMA",
         words: "BOB\nJOE\nTOM",
         error: "",
-        clicked: false
+        clicked: false,
     }
 
     setGrid = (value: string) => {
@@ -87,9 +87,8 @@ export default class Home extends Component {
                             className="button-example"
                             id={"start"} type={"button"}
                             onClick={() => this.checkGrid(this.state.grid, this.state.words)}>
-                            Solve!!
+                            Solve!
                         </button>
-                        {/*() => {solver(this.state.grid, this.state.words); this.Handleclick()}*/}
                     </div>
 
                     <div>
@@ -97,11 +96,10 @@ export default class Home extends Component {
                             Preview
                         </div>
 
-                        <Grid preview={this.state.preview} found={this.state.found}/>
-
-                        <h1>
-                            {this.state.error}
-                        </h1>
+                        {this.state.clicked ? (this.state.error.length === 0 ?
+                            <Grid preview={this.state.preview} found={this.state.found}/> :
+                            this.state.error) : <Grid preview={this.state.preview} found={this.state.found}/>
+                        }
                     </div>
                 </div>
             </div>
