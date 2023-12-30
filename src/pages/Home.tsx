@@ -1,10 +1,10 @@
 import React, {Component, useState} from 'react';
-import solver from './components/solver';
-import setUp from './components/solver';
-import Navbar from './components/navbar'
-import './App.css';
+import solver from '../logic/Solver';
+import setUp from '../logic/Solver';
+import Navbar from '../components/Navbar'
+import '../style/App.css';
 import {Routes, Route, Link} from "react-router-dom";
-import Grid from './components/grid'
+import Grid from '../components/Grid'
 
 
 export default class Home extends Component {

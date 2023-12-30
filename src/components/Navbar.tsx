@@ -1,6 +1,6 @@
 import React from "react";
-import '../App.css'
-import Logo from './logo'
+import '../style/Navbar.css'
+import Logo from './Logo'
 
 export default function Navbar() {
     return (
@@ -9,9 +9,9 @@ export default function Navbar() {
                 <Logo/>
             </a>
             <div className="nav navbar-nav">
-                <a className="nav-item nav-link" href="./home">Home </a>
-                <a className="nav-item nav-link" href="./about">About </a>
-                <a className="nav-item nav-link" href="./howitworks">How it works </a>
+                <a className="nav-item" href="./home">Home </a>
+                <a className="nav-item" href="./about">About </a>
+                <a className="nav-item" href="./howitworks">How it works </a>
             </div>
         </nav>
     );

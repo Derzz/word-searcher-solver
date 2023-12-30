@@ -2,33 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.navbar {
-    overflow: hidden;
-    display: flex;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-.nav.navbar-nav {
-    flex-grow: 1;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.title {
-    @apply text-black font-bold;
-    text-align: center;
-    overflow: hidden;
-    position: relative;
-    height: 100px;
-    display: flex;
-
-    padding-top: 15px;
-    background: rgb(128, 126, 126);
-}
-
 
 .title-block {
     position: relative;

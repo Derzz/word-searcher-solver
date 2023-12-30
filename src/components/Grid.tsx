@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from "react";
-import "../index.css";
-import "../App.css";
-import {foundWord} from "./solver";
+import "../style/index.css";
+import "../style/App.css";
+import {foundWord} from "../logic/Solver";
 
 //import 'bootstrap/dist/css/bootstrap.min.css';
 

@@ -1,9 +1,9 @@
 import React, {Component, useState} from 'react';
-import solver from './components/solver';
-import setUp from './components/solver';
-import './App.css';
+import solver from '../logic/Solver';
+import setUp from '../logic/Solver';
+import '../style/App.css';
 import {Routes, Route, Link} from "react-router-dom";
-import Navbar from './components/navbar'
+import Navbar from '../components/Navbar'
 
 //import waterloo from './university-of-waterloo9207.logowik.com.webp';
 
@@ -13,7 +13,7 @@ function About() {
             <Navbar/>
             <div className="aboutus-body">
                 <div className="image">
-                    <img src={require("./university-of-waterloo9207.logowik.com.webp")}>
+                    <img src={require("../university-of-waterloo9207.logowik.com.webp")}>
 
                     </img>
                 </div>
