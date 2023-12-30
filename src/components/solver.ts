@@ -85,6 +85,7 @@ const solver = (word: string): foundWord => {
             }
         }
     }
+    
     return solved; // return solved if the word is not found
 }
 

@@ -43,7 +43,6 @@
    display:flex;
    flex-direction:row;
    
-   
 }
 
 .hello{
@@ -51,7 +50,7 @@
     flex-direction: column;
     justify-content: center;
     height:600px;
-    width: 900px;
+    width: 800px;
     align-items: center;
 }
 
@@ -60,18 +59,6 @@
     
 }
 
-.preview-backgorund{
-    @apply bg-slate-100;
-    display:flex;
-    border-style: solid;
-    border-width: 2px;
-    height:400px;
-    width:400px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 4px;
-    
-}
 
 .preview{
     display: flex;
@@ -82,11 +69,11 @@
     color: black;
     font-size: 15px;
     font-weight: bold;
-    
 }
+
 .preview-bar{
     @apply h-8 pt-1 rounded-md text-white bg-cyan-600 text-center align-middle;
-    width:400px;
+    width:500px;
     margin-top:40px;
     letter-spacing: 2px;
     

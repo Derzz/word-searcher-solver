@@ -40,8 +40,14 @@ class Home extends Component{
                 return;
             }
         }
-        this.setState({error: "The grid is a rectangle!"});
-        setUp(gridString, wordString);
+        var gridstring = (document.getElementById("grid") as HTMLInputElement).value;
+        console.log(gridstring);
+
+        this.setState({preview: gridstring.split("\n")});
+
+        this.setState({found: setUp(gridString, wordString)});
+
+        this.setState({clicked: true});
     }
 
 
@@ -49,20 +55,6 @@ class Home extends Component{
         super(props);
         //this.state = { preview: [''] };
     };
-
-    Handleclick = () => {
-        //const [splitted,setSplitted]= useState();
-        console.log(10);
-        var gridstring=(document.getElementById("grid") as HTMLInputElement).value;
-        //console.log();
-        //setSplitted(gridstring.split("\n")); 
-        //console.log(gridstring.split("\n")); 
-        console.log(gridstring);  
-        
-        this.setState({ preview: gridstring.split("\n")});  
-        //this.setState({ preview: gridstring});  
-        
-    }
 
     render(){
         return(
@@ -148,17 +140,21 @@ class Home extends Component{
     
                             <button 
                                 className="button-example" 
-                                id={"start"} type={"button"} onClick={() => solver(this.state.grid, this.state.words)}>
+                                id={"start"} type={"button"} onClick={() => this.checkGrid(this.state.grid, this.state.words)}>
                                 click me
                             </button>
+                            {/*() => {solver(this.state.grid, this.state.words); this.Handleclick()}*/}
                         </div>
     
                         <div>
                             <div className="preview-bar"> 
                                 Preview
                             </div>
-    
-                            <div className="preview-backgorund">
+
+                            <Grid preview={this.state.preview} found={this.state.found}/>
+                            {/*<div className="preview-backgorund">
+                                
+                                
                                 <div className="preview">
                                     {this.state.preview.map(show => (
                                         <p className='demo'> {show.split('').map(show2 => (
@@ -168,21 +164,17 @@ class Home extends Component{
                                         ))} </p>
                                         
                                     ))}
-                                </div>
-                            </div>
+                                    </div>
+                            </div>*/}
+                            <h1>
+                                {this.state.error}
+                            </h1>
                         </div>
                     </div>
                     
+                    
     
-                    <button onClick={this.Handleclick}>
-                            hi
-                    </button>
-    
-                    // TODO Add a way to change font color based on color selected
-    
-                    <h1>
-                        {this.state.error}
-                    </h1>
+                    
                 </header>
             </div>
         );

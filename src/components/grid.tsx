@@ -1,7 +1,8 @@
 import React, {useEffect, useRef} from "react";
 import "../index.css";
+import "../App.css";
 import {foundWord} from "./solver";
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 
 interface GridProps {
     preview: string[];
@@ -77,24 +78,29 @@ export default function Grid({preview, found}: GridProps) {
     }, [preview, found]);
 
     return (
-        <div className="d-flex flex-row flex-nowrap">
-            <div ref={containerRef} id="container" style={{width: '25%', height: '25%', marginRight: '20px'}}/>
-            <table className="table table-bordered" style={{width: '50%'}}>
+        <div className="preview-backgorund">
+            
+            <div className="grid-block">
+                <div ref={containerRef} id="container" >
+                </div>   
+            
+            </div>   
+
+            <table style={{height:'200px',width:'150px'}}>
                 <thead>
-                <tr>
-                    <th>Word</th>
-                    <th>Color</th>
-                </tr>
+                    <tr>
+                        <th className="grid-border">Word</th>
+                        <th className="grid-border">Color</th>
+                    </tr>
                 </thead>
                 <tbody>
                 {found.map((word, index) => (
-                    <tr key={index}>
-                        <td>{word.name}</td>
-                        <td style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                            {word.found ?
-                                <div style={{backgroundColor: `#${word.color}`, width: '20px', height: '20px'}}></div>
-                                :
-                                "NOT FOUND"
+                    <tr key={index} className="grid-border">
+                        <td className="grid-border">{word.name}</td>
+                        <td className="grid-border">
+                            {word.found ?                                
+                                    <div style={{backgroundColor: `#${word.color}`, width: '20px', height: '20px',margin: 'auto'}}></div>
+                                :"NOT FOUND"
                             }
                         </td>
                     </tr>
