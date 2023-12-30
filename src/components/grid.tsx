@@ -68,8 +68,17 @@ function makeGrid(
     }
 }
 
+
+
 export default function Grid({preview, found}: GridProps) {
     const containerRef = useRef(null);
+
+    function isEmpty(found: foundWord[]) { 
+        if (found.length == 0){
+            return 1;
+        }
+            return 0;
+       }
 
     useEffect(() => {
         if (containerRef.current) {
@@ -87,11 +96,17 @@ export default function Grid({preview, found}: GridProps) {
             </div>   
 
             <table style={{height:'200px',width:'150px'}}>
-                <thead>
-                    <tr>
+                
+                <thead> 
+                
+                {isEmpty(found) ?
+                    "" :  (<tr>
                         <th className="grid-border">Word</th>
                         <th className="grid-border">Color</th>
-                    </tr>
+                    </tr> ) 
+                }
+                
+                    
                 </thead>
                 <tbody>
                 {found.map((word, index) => (
