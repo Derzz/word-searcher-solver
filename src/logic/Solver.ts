@@ -73,6 +73,7 @@ const solver = (word: string): foundWord => {
                                         y: indexY + j * num
                                     });
                                     console.log("x:", indexX + i * num, "y: ", indexY + j * num);
+                                    
                                 }
 
                                 solved.found = true;
@@ -84,6 +85,7 @@ const solver = (word: string): foundWord => {
             }
         }
     }
+    
     return solved; // return solved if the word is not found
 }
 
