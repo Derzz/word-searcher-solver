@@ -2,6 +2,7 @@ import React, {useEffect, useRef} from "react";
 import "../index.css";
 import "../App.css";
 import {foundWord} from "./solver";
+
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
 interface GridProps {
@@ -59,9 +60,9 @@ function makeGrid(
                     const brightness = Math.round(
                         (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000
                     );
-                    const textColour = brightness > 125 ? "black" : "white";
                     // @ts-ignore
-                    div.style.color = textColour;
+                    div.style.color = brightness > 125 ? "black" : "white";
+
                 }
             }
         }
@@ -69,16 +70,15 @@ function makeGrid(
 }
 
 
-
 export default function Grid({preview, found}: GridProps) {
     const containerRef = useRef(null);
 
-    function isEmpty(found: foundWord[]) { 
-        if (found.length == 0){
+    function isEmpty(found: foundWord[]) {
+        if (found.length === 0) {
             return 1;
         }
-            return 0;
-       }
+        return 0;
+    }
 
     useEffect(() => {
         if (containerRef.current) {
@@ -88,32 +88,37 @@ export default function Grid({preview, found}: GridProps) {
 
     return (
         <div className="preview-backgorund">
-            
-            <div className="grid-block">
-                <div ref={containerRef} id="container" >
-                </div>   
-            
-            </div>   
 
-            <table style={{height:'200px',width:'150px'}}>
-                
-                <thead> 
+            <div className="grid-block">
+                <div ref={containerRef} id="container">
+                </div>
+
+            </div>
+
+            <table style={{height: '200px', width: '150px'}}>
+
+                <thead>
                 {isEmpty(found) ?
-                    "" :  (<tr>
+                    "" : (<tr>
                         <th className="grid-border">Word</th>
                         <th className="grid-border">Color</th>
-                    </tr>) 
+                    </tr>)
                 }
                 </thead>
-                
+
                 <tbody>
                 {found.map((word, index) => (
                     <tr key={index} className="grid-border">
                         <td className="grid-border">{word.name}</td>
                         <td className="grid-border">
-                            {word.found ?                                
-                                    <div style={{backgroundColor: `#${word.color}`, width: '20px', height: '20px',margin: 'auto'}}></div>
-                                :"NOT FOUND"
+                            {word.found ?
+                                <div style={{
+                                    backgroundColor: `#${word.color}`,
+                                    width: '20px',
+                                    height: '20px',
+                                    margin: 'auto'
+                                }}></div>
+                                : "NOT FOUND"
                             }
                         </td>
                     </tr>
