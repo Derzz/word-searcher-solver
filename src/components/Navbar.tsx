@@ -5,7 +5,7 @@ import Logo from './Logo'
 export default function Navbar() {
     return (
         <nav className="navbar title">
-            <a className="navbar-brand" href="#">
+            <a className="navbar-brand" href="./home">
                 <Logo/>
             </a>
             <div className="nav navbar-nav">

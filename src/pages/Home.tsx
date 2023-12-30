@@ -1,9 +1,7 @@
-import React, {Component, useState} from 'react';
-import solver from '../logic/Solver';
+import React, {Component} from 'react';
 import setUp from '../logic/Solver';
 import Navbar from '../components/Navbar'
 import '../style/App.css';
-import {Routes, Route, Link} from "react-router-dom";
 import Grid from '../components/Grid'
 
 
@@ -41,7 +39,7 @@ export default class Home extends Component {
                 return;
             }
         }
-        var gridstring = (document.getElementById("grid") as HTMLInputElement).value;
+        let gridstring = (document.getElementById("grid") as HTMLInputElement).value;
         console.log(gridstring);
 
         this.setState({preview: gridstring.split("\n")});
@@ -51,20 +49,10 @@ export default class Home extends Component {
         this.setState({clicked: true});
     }
 
-
-    constructor(props: any) {
-        super(props);
-        //this.state = { preview: [''] };
-    };
-
     render() {
         return (
             <div className="App">
-                <link rel="stylesheet"
-                      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
                 <Navbar/>
-
-
                 <div className="bigblock">
                     <div className="hello">
 
@@ -99,7 +87,7 @@ export default class Home extends Component {
                             className="button-example"
                             id={"start"} type={"button"}
                             onClick={() => this.checkGrid(this.state.grid, this.state.words)}>
-                            click me
+                            Solve!!
                         </button>
                         {/*() => {solver(this.state.grid, this.state.words); this.Handleclick()}*/}
                     </div>
