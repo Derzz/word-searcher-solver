@@ -1,6 +1,5 @@
 #container {
     display: grid;
-    height: 100%;
     width: 50%;
     align-items: center;
     justify-content: center;
@@ -11,9 +10,15 @@
     border: 1px solid rgba(86, 61, 124, .2);
 }
 
-.grid-border {
+.grid {
+
+}
+
+.gridCell {
+    display: flex;
+    border: 1px solid black;
     text-align: center;
-    border: 1px solid #000000;
+    justify-content: center;
 }
 
 .preview-background {

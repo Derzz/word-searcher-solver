@@ -7,7 +7,7 @@ interface GridProps {
     found: foundWord[];
 }
 
-// TODO Grid does not work past 12 width, fix from there
+// TODO Grid does not work past 10 length, 12 width, fix from there
 
 function hexToRgb(hex: string) {
     let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -29,7 +29,7 @@ function makeGrid(
     container.innerHTML = "";
     let rows: string = arr.length.toString();
     let cols: string = arr[0].length.toString();
-    container.className = "grid grid-cols-" + cols + " justify-items-center items-center";
+    container.className = "grid grid-cols-" + cols + " justify-items-center gap-0 auto-cols-auto";
     let count: number = 0;
 
 
@@ -38,6 +38,7 @@ function makeGrid(
             let cell = document.createElement("div");
             cell.innerText = arr[i][c];
             cell.id = "cell" + count;
+            cell.className = "gridCell w-full pb-full w-full"
             container.appendChild(cell);
             ++count;
         }
