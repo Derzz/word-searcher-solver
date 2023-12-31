@@ -73,7 +73,7 @@ const solver = (word: string): foundWord => {
                                         y: indexY + j * num
                                     });
                                     console.log("x:", indexX + i * num, "y: ", indexY + j * num);
-                                    
+
                                 }
 
                                 solved.found = true;
@@ -85,7 +85,7 @@ const solver = (word: string): foundWord => {
             }
         }
     }
-    
+
     return solved; // return solved if the word is not found
 }
 
@@ -102,7 +102,6 @@ const setUp = function (gridString: string, wordString: string): Array<foundWord
 
     GRIDY = gridString.split('\n')[0].length - 1;
     GRIDX = GRID.length - 1;
-    // TODO Perform check and check if grid is a rectangle, if it's irregular, return error(Maybe do a try catch and throw an exception)
     let foundWords: Array<foundWord> = new Array<foundWord>();
     words.forEach((str) => {
         foundWords.push(solver(str));

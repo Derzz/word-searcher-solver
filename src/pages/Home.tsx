@@ -45,7 +45,7 @@ export default class Home extends Component {
         this.setState({preview: gridstring.split("\n")});
 
         this.setState({found: setUp(gridString, wordString)});
-
+        this.setState({error: ""});
         this.setState({clicked: true});
     }
 

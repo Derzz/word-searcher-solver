@@ -11,7 +11,7 @@ export default function Navbar() {
             <div className="nav navbar-nav">
                 <a className="nav-item" href="./home">Home </a>
                 <a className="nav-item" href="./about">About </a>
-                <a className="nav-item" href="./howitworks">How it works </a>
+                <a className="nav-item" href="./howitworks">How It Works! </a>
             </div>
         </nav>
     );

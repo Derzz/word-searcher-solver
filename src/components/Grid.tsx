@@ -1,17 +1,16 @@
 import React, {useEffect, useRef} from "react";
-import "../style/index.css";
-import "../style/App.css";
+import "../style/Grid.css";
 import {foundWord} from "../logic/Solver";
-
-//import 'bootstrap/dist/css/bootstrap.min.css';
 
 interface GridProps {
     preview: string[];
     found: foundWord[];
 }
 
+// TODO Grid does not work past 12 width, fix from there
+
 function hexToRgb(hex: string) {
-    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result
         ? [
             parseInt(result[1], 16),
@@ -30,18 +29,18 @@ function makeGrid(
     container.innerHTML = "";
     let rows: string = arr.length.toString();
     let cols: string = arr[0].length.toString();
-    let rowCount: number = 0;
-    let colCount: number = 0;
+    container.className = "grid grid-cols-" + cols + " justify-items-center items-center";
+    let count: number = 0;
 
-    container.style.setProperty("--grid-rows", rows);
-    container.style.setProperty("--grid-cols", cols);
-    for (let c = 0; c < parseInt(rows) * parseInt(cols); c++) {
-        rowCount = Math.floor(c / parseInt(cols));
-        colCount = c % parseInt(cols);
-        let cell = document.createElement("div");
-        cell.innerText = arr[rowCount][colCount];
-        container.appendChild(cell).className = "grid-item";
-        container.appendChild(cell).id = "cell" + c;
+
+    for (let i = 0; i < parseInt(rows); ++i) {
+        for (let c = 0; c < parseInt(cols); c++) {
+            let cell = document.createElement("div");
+            cell.innerText = arr[i][c];
+            cell.id = "cell" + count;
+            container.appendChild(cell);
+            ++count;
+        }
     }
 
     // Add ability to color cells based on foundWord
@@ -87,19 +86,11 @@ export default function Grid({preview, found}: GridProps) {
     }, [preview, found]);
 
     return (
-        <div className="preview-backgorund">
-
-            <div className="grid-block">
-                <div ref={containerRef} id="container">
-                </div>
-
-            </div>
-
-            <table style={{height: '200px', width: '150px'}}>
-
-                <thead>
-                {isEmpty(found) ?
-                    "" : (<tr>
+        <div className="preview-background">
+            <div ref={containerRef} id="container"/>
+            <table>
+                <thead>{isEmpty(found) ?
+                    <tr/> : (<tr>
                         <th className="grid-border">Word</th>
                         <th className="grid-border">Color</th>
                     </tr>)
