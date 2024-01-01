@@ -1,6 +1,5 @@
 "use client";
 import React, {Component} from 'react';
-import Navbar from './navbar'
 import './home.css';
 import Grid from './grid'
 import setUp from './solver'
@@ -53,7 +52,6 @@ export default class Page extends Component {
   render() {
     return (
         <div className="App">
-          <Navbar/>
           <div className="container-fluid">
             <div className="input">
               <div className="text-title1">
