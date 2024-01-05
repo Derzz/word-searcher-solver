@@ -1,0 +1,98 @@
+html, body {
+    height: 100%;
+}
+
+#root, .App {
+    height: 100%
+}
+
+.container-fluid {
+    display: flex;
+    bottom: 0;
+    flex-basis: 0;
+    flex-direction: row;
+    height: 100%;
+    position: relative;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 50%;
+    align-items: center;
+}
+
+
+.preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 50%;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#previewItems {
+    height: 75%
+}
+
+.preview-bar {
+    @apply h-8 pt-1 rounded-md text-white bg-cyan-600 text-center align-middle;
+    width: 500px;
+    margin-top: 40px;
+    letter-spacing: 2px;
+
+}
+
+
+.button-example {
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: rgb(128, 126, 126);
+    cursor: pointer;
+    border: 2px solid;
+    padding: 0.25em 0.5em;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    position: relative;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.button-example:active {
+    box-shadow: 0px 0px 0px 0px;
+    top: 5px;
+    left: 5px;
+}
+
+@media (min-width: 768px) {
+    .button-example {
+        padding: 0.25em 0.75em;
+    }
+}
+
+.text-title1 {
+    @apply h-8 pt-1 w-80 rounded-md text-white bg-cyan-600 text-center align-middle;
+    letter-spacing: 2px;
+    padding-left: 25px;
+}
+
+.text-title2 {
+    @apply h-8 pt-1 w-80 rounded-md text-white bg-cyan-600 text-center align-middle mt-4;
+    letter-spacing: 2px;
+}
+
+li {
+    list-style-type: none;
+}
+
+.image {
+    width: 600px;
+    height: 600px;
+}
+
+

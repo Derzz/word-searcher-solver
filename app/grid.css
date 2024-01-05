@@ -1,0 +1,36 @@
+#container {
+    display: grid;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.col {
+    border: 1px solid rgba(86, 61, 124, .2);
+}
+
+.grid-border {
+    border: 1px solid black;
+}
+
+.gridCell {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview-background {
+    @apply bg-slate-100;
+    display: flex;
+    border-style: solid;
+    border-width: 2px;
+    height: 70%;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 4px;
+}
+
