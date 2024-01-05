@@ -22,7 +22,15 @@
     align-items: center;
 }
 
+
 .nav-item {
-    font-size: 30px;
+    width: 170px;
+    color: #000000;
+    font-family: monospace;
+    font-size: 17px;
 }
 
+.nav-item:hover {
+    color: rgb(213, 210, 210);
+    font-size: 19px;
+}

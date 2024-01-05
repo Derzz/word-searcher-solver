@@ -3,7 +3,7 @@ import setUp from '../logic/Solver';
 import Navbar from '../components/Navbar'
 import '../style/App.css';
 import Grid from '../components/Grid'
-
+import Textrec from '../components/Text-rec';
 
 export default class Home extends Component {
     state = {
@@ -103,6 +103,8 @@ export default class Home extends Component {
                             {this.state.error}
                         </h1>
                     </div>
+                    <Textrec></Textrec>
+
                 </div>
             </div>
 
