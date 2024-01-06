@@ -1,5 +1,4 @@
 import {useState,useEffect} from 'react';
-import '../style/App.css';
 import Tesseract from 'tesseract.js';
 import { createWorker } from 'tesseract.js';
 

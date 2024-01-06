@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import './home.css';
 import Grid from './grid'
 import setUp from './solver'
-
+import Textrec from './Text-rec';
 
 export default class Page extends Component {
   state = {
@@ -99,6 +99,7 @@ export default class Page extends Component {
                 }
               </div>
             </div>
+            <Textrec></Textrec>
           </div>
         </div>
 
