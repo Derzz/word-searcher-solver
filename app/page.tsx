@@ -13,6 +13,7 @@ export default class Page extends Component {
     words: "BOB\nJOE\nTOM",
     error: "",
     clicked: false,
+    imageButton: false,
   }
 
   setGrid = (value: string) => {
@@ -21,6 +22,10 @@ export default class Page extends Component {
 
   setWords = (value: string) => {
     this.setState({words: value});
+  }
+
+  setImageButton = () =>{
+    this.setState({imageButton: !this.state.imageButton});
   }
 
   checkGrid = (gridString: string, wordString: string) => {
@@ -81,11 +86,17 @@ export default class Page extends Component {
                   rows={5}/>
 
               <button
-                  className="button-example"
-                  id={"start"} type={"button"}
+                  className={"home-button"} id={"start"} type={"button"}
                   onClick={() => this.checkGrid(this.state.grid, this.state.words)}>
                 Solve!
               </button>
+
+              <button className={"home-button"} id={"imageButton"} type={"button"}
+                      onClick={() => this.setImageButton()}> Upload Image</button>
+              {this.state.imageButton ? (
+                  <Textrec setImageButton={() => this.setImageButton()} setGrid={(x: string) => this.setGrid(x)}/>
+              ) : null}
+
             </div>
 
             <div className="preview">
@@ -99,7 +110,6 @@ export default class Page extends Component {
                 }
               </div>
             </div>
-            <Textrec></Textrec>
           </div>
         </div>
 
