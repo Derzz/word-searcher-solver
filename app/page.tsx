@@ -13,6 +13,7 @@ export default class Page extends Component {
     words: "BOB\nJOE\nTOM",
     error: "",
     clicked: false,
+    imageButton: false,
   }
 
   setGrid = (value: string) => {
@@ -23,8 +24,26 @@ export default class Page extends Component {
     this.setState({words: value});
   }
 
+  setImageButton = () =>{
+    this.setState({imageButton: !this.state.imageButton});
+  }
+
   checkGrid = (gridString: string, wordString: string) => {
     let temp: Array<string> = gridString.split('\n').map(str => str.trim());
+    console.log(temp[temp.length - 1]);
+    if(temp[temp.length - 1] == ''){
+      temp.pop();
+    }
+    if(wordString[wordString.length - 1] == '\n'){
+      wordString = wordString.slice(0, -1);
+    }
+    for(let i = 0; i < temp.length; ++i){
+      if(temp[i] == ''){
+        this.setState({error: "There is a gap in the grid. Please try again."});
+        return;
+      }
+    }
+
     let compareLength: number = temp[0].length;
 
     if (compareLength === 0) {
@@ -42,7 +61,7 @@ export default class Page extends Component {
     let gridstring = (document.getElementById("grid") as HTMLInputElement).value;
     console.log(gridstring);
 
-    this.setState({preview: gridstring.split("\n")});
+    this.setState({preview: temp});
 
     this.setState({found: setUp(gridString, wordString)});
     this.setState({error: ""});
@@ -81,11 +100,17 @@ export default class Page extends Component {
                   rows={5}/>
 
               <button
-                  className="button-example"
-                  id={"start"} type={"button"}
+                  className={"home-button"} id={"start"} type={"button"}
                   onClick={() => this.checkGrid(this.state.grid, this.state.words)}>
                 Solve!
               </button>
+
+              <button className={"home-button"} id={"imageButton"} type={"button"}
+                      onClick={() => this.setImageButton()}> Upload Image</button>
+              {this.state.imageButton ? (
+                  <Textrec setImageButton={() => this.setImageButton()} setGrid={(x: string) => this.setGrid(x)} setError={(x: string) => this.setState({error: x})}/>
+              ) : null}
+
             </div>
 
             <div className="preview">
@@ -93,13 +118,10 @@ export default class Page extends Component {
                 <div className="preview-bar">
                   Preview
                 </div>
-                {this.state.clicked ? (this.state.error.length === 0 ?
-                    <Grid preview={this.state.preview} found={this.state.found}/> :
-                    this.state.error) : <Grid preview={this.state.preview} found={this.state.found}/>
-                }
+                {this.state.error.length !== 0 ? this.state.error:  <Grid preview={this.state.preview} found={this.state.found}/>}
+
               </div>
             </div>
-            <Textrec></Textrec>
           </div>
         </div>
 
