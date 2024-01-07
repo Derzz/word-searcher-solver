@@ -44,6 +44,7 @@ export default function Textrec(props: any){
                 props.setGrid(text);
                 await worker.terminate();
             })();
+            props.setError("Image recognition was successful. Please check for any errors and input your words.");
             props.setImageButton();
         }catch(e){
             // @ts-ignore
