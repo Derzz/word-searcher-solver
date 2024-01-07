@@ -1,16 +1,10 @@
-import React from 'react';
-import './about.css'
+"use client";
+import Content from './content.mdx'
 
-function Page() {
-    return (
-        <div className="App">
-            <div id="container-fluid">
-                <h1> About</h1>
-            </div>
-        </div>
-
-
+export default function about(){
+    return(
+        <article className="prose lg:prose-xl justify-center">
+            <Content/>
+        </article>
     );
 }
-
-export default Page;

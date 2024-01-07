@@ -1,13 +1,10 @@
-import React from 'react';
-import '../home.css';
+"use client";
+import Content from './content.mdx'
 
-function Page() {
-    return (
-        <div>
-
-    <h1> How it Works</h1>
-        </div>
+export default function howItWorks(){
+    return(
+        <article className="prose lg:prose-xl justify-center">
+            <Content/>
+        </article>
     );
 }
-
-export default Page;
